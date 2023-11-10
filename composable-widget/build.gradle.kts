@@ -92,17 +92,17 @@ dependencies {
     val work_version = "2.8.1"
     implementation("androidx.work:work-runtime-ktx:$work_version")
 }
-//
-//afterEvaluate {
-//    publishing {
-//        publications {
-//            create<MavenPublication>("release") {
-//                from(components["release"])
-//
-//                groupId = "com.github.philipplackner"
-//                artifactId = "image-preview-compose"
-//                version = "1.0"
-//            }
-//        }
-//    }
-//}
+
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+
+                groupId = "com.github.natiqhaciyef"
+                artifactId = "composable-widgets"
+                version = "1.0"
+            }
+        }
+    }
+}
