@@ -2,6 +2,7 @@ package com.natiqhaciyef.composable_widget.component
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,7 +37,7 @@ fun NotificationComponent(
     title: String = "Title text",
     description: String = "hello world your idea is so smart welcome to Azerbaijan",
     imageId: Int,
-    textColor: Color
+    textColor: Color,
 ) {
     Card(
         modifier = Modifier.fillMaxWidth(),
@@ -87,6 +88,7 @@ fun CustomSnackbar(
     returnMessage: String,
     textColor: Color,
     backgroundColor: Color,
+    onClick: () -> Unit = {},
 ) {
     val snackbarHostState = remember { SnackbarHostState() }
 
@@ -102,7 +104,10 @@ fun CustomSnackbar(
                     Text(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(end = 10.dp),
+                            .padding(end = 10.dp)
+                            .clickable {
+                                onClick()
+                            },
                         text = "Okay",
                         fontSize = 17.sp,
                         fontWeight = FontWeight.Bold,
